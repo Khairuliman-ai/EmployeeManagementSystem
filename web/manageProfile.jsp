@@ -1,4 +1,4 @@
-<%@ page import="java.util.*, model.User, model.UserDao" %>
+<%@ page import="java.util.*, model.User, model.UserDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ page import="model.User" %>
@@ -125,7 +125,7 @@
         <%
             List<User> userList = (List<User>) request.getAttribute("userList");
             if (userList == null) {
-                UserDao dao = new UserDao();
+                UserDAO dao = new UserDAO();
                 userList = dao.getAllUsers();
             }
         %>

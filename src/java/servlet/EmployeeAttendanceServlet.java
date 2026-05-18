@@ -1,6 +1,6 @@
 package servlet;
 
-import dao.AttendanceDAO;
+import model.AttendanceDAO;
 import model.Attendance;
 import model.User;
 

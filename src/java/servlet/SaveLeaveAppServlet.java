@@ -65,7 +65,8 @@ public class SaveLeaveAppServlet extends HttpServlet {
             filePart.write(filePath);
 
             // Insert into database (using your DAO)
-            boolean result = LeaveApplicationDAO.insertLeave(
+            LeaveApplicationDAO dao = new LeaveApplicationDAO();
+            boolean result = dao.insertLeave(
                     userId, leaveType, startDate, endDate, reason, "Pending", fileName
             );
 

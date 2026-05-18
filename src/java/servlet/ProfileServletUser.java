@@ -1,7 +1,7 @@
 package servlet;
 
 import model.User;
-import model.UserDao;
+import model.UserDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -15,11 +15,11 @@ import javax.servlet.http.Part;
                  maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class ProfileServletUser extends HttpServlet {
 
-    private UserDao userDao;
+    private UserDAO userDao;
 
     @Override
     public void init() {
-        userDao = new UserDao();
+        userDao = new UserDAO();
     }
 
     @Override

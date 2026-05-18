@@ -1,9 +1,8 @@
-
 package model;
 
 import java.sql.Date;
 
-public class userAttendance {
+public class UserAttendance {
     private int attendanceID;
     private int userID;
     private Date date;
@@ -75,7 +74,6 @@ public class userAttendance {
         this.attendancePercentage = attendancePercentage;
     }
 
-
     // Getters and Setters
 
     public int getAttendanceID() {
@@ -125,6 +123,4 @@ public class userAttendance {
     public void setAttendanceStatus(String attendanceStatus) {
         this.attendanceStatus = attendanceStatus;
     }
-    
 }
-

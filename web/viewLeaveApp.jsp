@@ -1,4 +1,5 @@
 <%@ page import="java.util.List" %>
+<%@ page import="model.LeaveApplication" %>
 <%@ page import="model.LeaveApplicationDAO" %>
 <%@ page import="model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -78,7 +79,8 @@
             <h2 class="text-center mb-4 text-primary">My Leave Applications</h2>
 
             <%
-                List<String[]> applications = LeaveApplicationDAO.getLeavesByUserID(String.valueOf(user.getUserID()));
+                LeaveApplicationDAO leaveDAO = new LeaveApplicationDAO();
+                List<LeaveApplication> applications = leaveDAO.getLeavesByUserID(String.valueOf(user.getUserID()));
 
                 if (applications.isEmpty()) {
             %>
@@ -102,16 +104,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <% for (String[] app : applications) { %>
+                        <% for (LeaveApplication app : applications) { %>
                             <tr>
-                                <td><%= app[0] %></td>
-                                <td><%= app[2] %></td>
-                                <td><%= app[3] %></td>
-                                <td><%= app[4] %></td>
-                                <td><%= app[5] %></td>
+                                <td><%= app.getLeaveId() %></td>
+                                <td><%= app.getLeaveType() %></td>
+                                <td><%= app.getStartDate() %></td>
+                                <td><%= app.getEndDate() %></td>
+                                <td><%= app.getReason() %></td>
                                 <td>
                                     <% 
-                                        String status = app[6];
+                                        String status = app.getStatus();
                                         String badgeClass = "secondary";
                                         if ("Pending".equalsIgnoreCase(status)) badgeClass = "warning";
                                         else if ("Approved".equalsIgnoreCase(status)) badgeClass = "success";
@@ -120,8 +122,8 @@
                                     <span class="badge bg-<%= badgeClass %>"><%= status %></span>
                                 </td>
                                 <td>
-                                    <% if (app[7] != null && !app[7].isEmpty()) { %>
-                                        <a href="uploadFiles/<%= app[7] %>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <% if (app.getReasonFile() != null && !app.getReasonFile().isEmpty()) { %>
+                                        <a href="uploadFiles/<%= app.getReasonFile() %>" target="_blank" class="btn btn-sm btn-outline-primary">
                                             <i class="bi bi-file-earmark-text"></i> View
                                         </a>
                                     <% } else { %>
@@ -131,8 +133,8 @@
                                 <td>
                     <% if ("Pending".equalsIgnoreCase(status)) {%>
                     <form action="deleteLeaveAppServlet" method="post" onsubmit="return confirm('Are you sure you want to delete this leave application?');">
-                        <input type="hidden" name="leaveId" value="<%= app[0]%>">
-                        <input type="hidden" name="userId" value="<%= app[1]%>">
+                        <input type="hidden" name="leaveId" value="<%= app.getLeaveId() %>">
+                        <input type="hidden" name="userId" value="<%= app.getUserID() %>">
                         <input type="submit" value="Delete">
                     </form>
                     <% } else { %>

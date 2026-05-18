@@ -4,7 +4,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import model.User;
-import model.UserDao;
+import model.UserDAO;
 
 public class RegisterServlet extends HttpServlet {
     @Override
@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
             // ✅ Create User object
             User user = new User(0, username.trim(), fullName.trim(), gender, email, phone, password, address, department, dob, role);
 
-            UserDao userDao = new UserDao();
+            UserDAO userDao = new UserDAO();
             boolean success = userDao.registerUser(user);
 
             if (success) {

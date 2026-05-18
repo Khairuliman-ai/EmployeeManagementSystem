@@ -1,7 +1,7 @@
 package servlet;
 
 import model.User;
-import model.UserDao;
+import model.UserDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -11,11 +11,11 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ProfileServlet1 extends HttpServlet {
-    private UserDao userDao;
+    private UserDAO userDao;
 
     @Override
     public void init() {
-        userDao = new UserDao();
+        userDao = new UserDAO();
     }
 
     @Override
@@ -97,7 +97,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
             String password = request.getParameter("password");
             String address = request.getParameter("address");
 
-            UserDao dao = new UserDao();
+            UserDAO dao = new UserDAO();
 
             if (idParam == null || idParam.trim().isEmpty()) {
                 // INSERT new user

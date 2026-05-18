@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="model.User, model.UserDao, java.sql.SQLException" %>
+<%@ page import="model.User, model.UserDAO, java.sql.SQLException" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,7 @@
     <h2>Update User</h2>
     <% 
         int userID = Integer.parseInt(request.getParameter("userID"));
-        UserDao userDao = new UserDao();
+        UserDAO userDao = new UserDAO();
         User user = null;
         try {
             user = userDao.getUserById(userID);

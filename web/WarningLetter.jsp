@@ -6,7 +6,7 @@
 
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDate"%>
-<%@page import="model.userAttendance"%>
+<%@page import="model.UserAttendance"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -53,8 +53,7 @@
                 }
         %>
         <%
-            userAttendance userAtt = new userAttendance();
-            userAtt = (userAttendance) request.getAttribute("userAttribute");
+            UserAttendance userAtt = (UserAttendance) request.getAttribute("userAttribute");
         %>
         <div class="letter-container">
             <div class="header">

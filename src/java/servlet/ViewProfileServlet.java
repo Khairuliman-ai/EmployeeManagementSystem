@@ -1,7 +1,7 @@
 package servlet;
 
 import model.User;
-import model.UserDao;
+import model.UserDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,11 +12,11 @@ import java.util.List;
 
 public class ViewProfileServlet extends HttpServlet {
 
-    private UserDao userDao;
+    private UserDAO userDao;
 
     @Override
     public void init() {
-        userDao = new UserDao();
+        userDao = new UserDAO();
     }
 
     @Override

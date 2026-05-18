@@ -28,7 +28,8 @@ public class UpdateLeaveStatusServlet extends HttpServlet {
             int leaveId = Integer.parseInt(request.getParameter("leaveId"));
             String status = request.getParameter("status");//for ptj to approved or reject the form
 
-            boolean updated = LeaveApplicationDAO.updateLeaveStatus(leaveId, status);
+            LeaveApplicationDAO dao = new LeaveApplicationDAO();
+            boolean updated = dao.updateLeaveStatus(leaveId, status);
 
             if (updated) {
                 response.sendRedirect("manageLeaveAppServlet");

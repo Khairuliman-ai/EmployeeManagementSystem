@@ -7,7 +7,7 @@ import java.util.*;
 import model.Overtime;
 import util.DBUtil;
 import model.User;
-import model.userAttendance;
+import model.UserAttendance;
 
 public class OvertimeDAO {
 
@@ -108,8 +108,8 @@ public class OvertimeDAO {
         return result;
     }
     
-    public static List<userAttendance> getMonthlyAttendanceReport(String departmentM, int year, int month) {
-        List<userAttendance> reports = new ArrayList<>();
+    public static List<UserAttendance> getMonthlyAttendanceReport(String departmentM, int year, int month) {
+        List<UserAttendance> reports = new ArrayList<>();
         String formattedMonth = String.format("%04d-%02d", year, month);
 
         String sql = "SELECT "
@@ -143,7 +143,7 @@ public class OvertimeDAO {
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    userAttendance userAtt = new userAttendance();
+                    UserAttendance userAtt = new UserAttendance();
                     userAtt.setUserID(rs.getInt("userID"));
                     userAtt.setFullName(rs.getString("fullName"));
                     userAtt.setRole(rs.getString("role"));

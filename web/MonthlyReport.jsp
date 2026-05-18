@@ -1,6 +1,6 @@
 <%@ page import="model.User" %>
 <%@ page import="model.OvertimeDAO" %>
-<%@ page import="model.userAttendance" %>
+<%@ page import="model.UserAttendance" %>
 <%@ page import="java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -71,9 +71,9 @@
                         int year = Integer.parseInt(request.getParameter("year"));
                         int month = Integer.parseInt(request.getParameter("month"));
 
-                        List<userAttendance> list = OvertimeDAO.getMonthlyAttendanceReport(department, year, month);
+                        List<UserAttendance> list = OvertimeDAO.getMonthlyAttendanceReport(department, year, month);
 
-                        for (userAttendance e : list) {
+                        for (UserAttendance e : list) {
                             String warning = e.getAttendancePercentage() < 60 ? "table-danger" : "";
                     %>
                         <tr class="<%= warning %> text-center align-middle">

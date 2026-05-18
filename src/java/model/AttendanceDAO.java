@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 import model.Attendance;
 import util.DBUtil;

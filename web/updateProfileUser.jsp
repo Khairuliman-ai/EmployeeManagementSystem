@@ -1,4 +1,4 @@
-<%@ page import="model.User, model.UserDao" %>
+<%@ page import="model.User, model.UserDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -15,7 +15,7 @@
 
     if (paramUserID != null) {
         int targetUserID = Integer.parseInt(paramUserID);
-        UserDao dao = new UserDao();
+        UserDAO dao = new UserDAO();
         user = dao.getUserById(targetUserID);
     } else {
         user = currentSessionUser;
