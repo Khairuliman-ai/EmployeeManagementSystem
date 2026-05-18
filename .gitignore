@@ -1,0 +1,24 @@
+# --- NetBeans / Ant Build Outputs ---
+build/
+dist/
+nbbuild/
+nbdist/
+nbproject/private/
+.nb-gradle/
+
+# --- Java Compiled Files ---
+*.class
+*.jar
+*.war
+*.ear
+
+# --- Log Files ---
+*.log
+
+# --- OS & IDE Temporary Files ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.user
